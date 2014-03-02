@@ -198,7 +198,6 @@ public class TrieNode {
 		Collections.sort(words);
 		String previousWord = "";
 		int commonPrefix = 0, minLen = 0, len = 0;
-		;
 
 		// These are the nodes that can be potentially removed from trie
 		ArrayList<TrieNodePair> uncheckedNodes = new ArrayList<TrieNodePair>();
@@ -304,7 +303,7 @@ public class TrieNode {
 		HashSet<Integer> isEndOfList = new HashSet<Integer>();
 
 		// Add the root to queue to start things off
-		root.isFinal = true;
+		root.isFinal = false;
 		queue.add(root);
 
 		try {
