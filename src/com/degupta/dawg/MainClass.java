@@ -29,8 +29,8 @@ public class MainClass {
 	 * 
 	 * @param args[5] bitWise
 	 *                Set to true if you want to write the file on bit boundaries
-	 *                rather than byte boundaries. Byte Bounderies will only work for
-	 *                Englisg
+	 *                rather than byte boundaries. Byte Boundaries will only work for
+	 *                English
 	 * </pre>
 	 */
 	public static void main(String args[]) {

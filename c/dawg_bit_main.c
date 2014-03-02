@@ -7,7 +7,14 @@ void translate(int *translatedWord, char *word, int* len)
 	int i = 0;
 	while(word[i] != '\0' && word[i] != '\n')
 	{
-		translatedWord[i] = (int)(word[i] - 'a' + 1);
+		if (word[i] < 'a')
+		{
+			translatedWord[i] = (int)(word[i] - 'a' + 1 + 32);
+		}
+		else
+		{
+			translatedWord[i] = (int)(word[i] - 'a' + 1);
+		}
 		i++;
 	}
 	translatedWord[i] = '\0';
