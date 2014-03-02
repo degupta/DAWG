@@ -37,8 +37,13 @@ void testDawg(const char * fileName, DawgBitArray_t dawgBitArray)
 
 int main(int argc, char *argv[])
 {
-	DawgBitArray_t dawgBitArray = createDawgBitFromFile("bin/dict_bit");
-	testDawg("bin/words", dawgBitArray);
+	if (argc < 3)
+	{
+		printf("Requires Dawg File and List of Words\n");
+		return 0;
+	}
+	DawgBitArray_t dawgBitArray = createDawgBitFromFile(argv[1]);
+	testDawg(argv[2], dawgBitArray);
 	freeDawg(dawgBitArray);
 	return 0;
 }

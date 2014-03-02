@@ -29,8 +29,13 @@ void testDawg(const char * fileName, DawgArray dawgArray)
 
 int main(int argc, char *argv[])
 {
-	DawgArray dawgArray = createDawgFromFile("bin/dict");
-	testDawg("bin/words", dawgArray);
+	if (argc < 3)
+	{
+		printf("Requires Dawg File and List of Words\n");
+		return 0;
+	}
+	DawgArray dawgArray = createDawgFromFile(argv[1]);
+	testDawg(argv[2], dawgArray);
 	free(dawgArray);
 	return 0;
 }
