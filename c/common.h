@@ -7,4 +7,6 @@
 
 typedef char boolean;
 
+typedef unsigned char* DawgArray;
+
 #endif

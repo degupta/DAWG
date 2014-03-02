@@ -1,4 +1,4 @@
-#include "DawgArray.h"
+#include "dawg.h"
 #include <stdio.h>
 #include <stdlib.h>
 

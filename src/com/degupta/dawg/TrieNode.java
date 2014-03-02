@@ -281,7 +281,7 @@ public class TrieNode {
 		return (byte) (num >> bitFrom);
 	}
 
-	public static int writeDawgToMinimumFile(TrieNode root, String fileName,
+	public static int writeDawgToBitFile(TrieNode root, String fileName,
 			int numEdges, Languages.ILanguageMapping mapping) {
 		int numNodesToWrite = numEdges + 1;
 		int alphabetSize = mapping.getAlphabetSize() + 1; // for NULL CHAR
@@ -594,7 +594,7 @@ public class TrieNode {
 
 		int fileSize = 0;
 		if (bitWise) {
-			fileSize = writeDawgToMinimumFile(root, outputFileName, arr[1],
+			fileSize = writeDawgToBitFile(root, outputFileName, arr[1],
 					new Languages.EnglishMapping());
 		} else {
 			fileSize = (arr[1] + 2) * 4;

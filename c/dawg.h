@@ -3,8 +3,6 @@
 
 #include "common.h"
 
-typedef unsigned char* DawgArray;
-
 DawgArray createDawgFromFile(const char * fileName);
 boolean wordExists(DawgArray dawgArray, MyStringBuffer_t word);
 boolean isEndOFWord(DawgArray dawgArray, int currentNode);
