@@ -1,6 +1,7 @@
 #include "dawg.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 DawgArray createDawgFromFile(const char * fileName)
 {

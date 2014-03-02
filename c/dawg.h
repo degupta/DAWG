@@ -4,7 +4,7 @@
 #include "common.h"
 
 DawgArray createDawgFromFile(const char * fileName);
-boolean wordExists(DawgArray dawgArray, MyStringBuffer_t word);
+boolean wordExists(DawgArray dawgArray, const char* word);
 boolean isEndOFWord(DawgArray dawgArray, int currentNode);
 boolean isChildEndOFWord(DawgArray dawgArray, int currentNode, char letter);
 void getChildren(DawgArray dawgArray, int currentNode, int* children);

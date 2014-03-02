@@ -1,5 +1,4 @@
 #include "dawg_bit.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -38,8 +37,8 @@ void testDawg(const char * fileName, DawgBitArray_t dawgBitArray)
 
 int main(int argc, char *argv[])
 {
-	DawgBitArray_t dawgBitArray = createDawgFromFile("dict_bit");
-	testDawg("words", dawgBitArray);
+	DawgBitArray_t dawgBitArray = createDawgBitFromFile("bin/dict_bit");
+	testDawg("bin/words", dawgBitArray);
 	freeDawg(dawgBitArray);
 	return 0;
 }

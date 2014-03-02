@@ -2,7 +2,7 @@
 
 #define min(a,b) (a < b ? a : b)
 
-DawgBitArray_t createDawgFromFile(const char * fileName)
+DawgBitArray_t createDawgBitFromFile(const char * fileName)
 {
 	char byte[6];
 	FILE *fr = fopen (fileName, "rb");
@@ -12,7 +12,7 @@ DawgBitArray_t createDawgFromFile(const char * fileName)
 
 	// The first six bytes specify the header info.
 	fread(byte, 1, 6, fr);
-	for(int i = 0; i < 4; i++)
+	for(i = 0; i < 4; i++)
 	{
 		size = size | (int)((byte[i]) & 0xFF) << (8 * i);
 	}
