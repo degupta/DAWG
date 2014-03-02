@@ -182,7 +182,6 @@ public class TrieNode {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		words.get(perLetter ? 'd' : (char) 0).add("devansh");
 
 		return words;
 	}
