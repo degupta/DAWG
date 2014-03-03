@@ -1,6 +1,8 @@
 package com.degupta.dawg;
+
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class DawgArray {
 	byte[] dawgArray = null;
@@ -147,5 +149,44 @@ public class DawgArray {
 		}
 
 		return children;
+	}
+
+	/**
+	 * Return all words in the DAWG
+	 */
+	public HashSet<String> getAllWords() {
+		HashSet<String> words = new HashSet<String>(170000);
+		getAllWords(words, new StringBuilder(), 0);
+		return words;
+	}
+
+	private void getAllWords(HashSet<String> words, StringBuilder word,
+			int currentNode) {
+		// Is Final Node
+		if (isEndOFWord(currentNode)) {
+			words.add(new String(word));
+		}
+
+		int pos = currentNode * 4;
+		int childPos = (unsignedToBytes(dawgArray[pos]) << 16)
+				| (unsignedToBytes(dawgArray[pos + 1]) << 8)
+				| (unsignedToBytes(dawgArray[pos + 2]));
+		childPos = childPos >> 2;
+		if (childPos == 0) {
+			return;
+		}
+		int childArrPos = 0;
+		// Go through list of children
+		while (true) {
+			childArrPos = childPos * 4;
+			word.append((char) (dawgArray[childArrPos + 3]));
+			getAllWords(words, word, childPos);
+			word.deleteCharAt(word.length() - 1);
+			// End of list of children
+			if ((dawgArray[childArrPos + 2] & 2) > 0) {
+				break;
+			}
+			childPos++;
+		}
 	}
 }
