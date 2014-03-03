@@ -1,0 +1,52 @@
+<project>
+
+	<target name="clean">
+		<delete dir="bin"/>
+	</target>
+
+	<target name="compile">
+		<mkdir dir="bin"/>
+		<javac srcdir="src" destdir="bin/"/>
+	</target>
+
+	<target name="jar" depends="compile">
+		<mkdir dir="bin/"/>
+		<jar destfile="bin/Dawg.jar" basedir="bin/">
+			<manifest>
+				<attribute name="Main-Class" value="com.degupta.dawg.MainClass"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="dawg" depends="jar">
+		<java jar="bin/Dawg.jar" fork="true">
+            <arg value="bin/dict"/>
+            <arg value="words"/>
+            <arg value="true"/>
+            <arg value="false"/>
+            <arg value="true"/>
+            <arg value="false"/>
+        </java>
+	</target>
+
+    <target name="dawg_bit" depends="jar">
+        <java jar="bin/Dawg.jar" fork="true">
+            <arg value="bin/dict_bit"/>
+            <arg value="words"/>
+            <arg value="true"/>
+            <arg value="false"/>
+            <arg value="true"/>
+            <arg value="true"/>
+        </java>
+
+        <java jar="bin/Dawg.jar" fork="true">
+            <arg value="bin/dict_bit_es"/>
+            <arg value="words_es"/>
+            <arg value="true"/>
+            <arg value="false"/>
+            <arg value="true"/>
+            <arg value="true"/>
+        </java>
+    </target>
+
+</project>

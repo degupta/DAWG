@@ -14,17 +14,20 @@ public class MainClass {
 	 * 
 	 * @param args[0] outFileName
 	 *                The file in which the dawg will be written too
+	 *
 	 * @param args[1] fileName
 	 *                The file containing the list of words
+	 *
 	 * @param args[2] createDawgFirst
 	 *                Set to false only if outFileName has already been
 	 *                generated and nothing has changed since then
+	 *
 	 * @param args[3] perLetter
 	 *                Set to true if you want to separate out the dawgs per letter 
 	 *                (as in one file will store all words starting with 'a', the next 
 	 *                 with 'b' and so on). They will be stored as <outFileName>_<startingLetter>
-	 * @param args
-	 *            [4] createFromFileForArrayLookup
+	 *
+	 * @param args[4] createFromFileForArrayLookup
 	 *            Set to true if you want to read in the file created and test it
 	 * 
 	 * @param args[5] bitWise
