@@ -16,7 +16,7 @@ public class DawgTester {
 	ArrayList<String> errors = new ArrayList<String>();
 
 	public static void main(String[] args) {
-		new DawgTester("bin/dict", "words");
+		new DawgTester(args[0], args[1]);
 	}
 
 	public DawgTester(String dawgFile, String wordsFileName) {
@@ -47,7 +47,7 @@ public class DawgTester {
 			}
 			System.exit(1);
 		} else {
-			System.out.println("All is good with the DAWG");
+			System.out.println("All is good with the big DAWG");
 			System.exit(0);
 		}
 

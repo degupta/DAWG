@@ -20,33 +20,46 @@
 
 	<target name="dawg" depends="jar">
 		<java jar="bin/Dawg.jar" fork="true">
-            <arg value="bin/dict"/>
-            <arg value="words"/>
-            <arg value="true"/>
-            <arg value="false"/>
-            <arg value="true"/>
-            <arg value="false"/>
-        </java>
+				<arg value="bin/dict"/>
+				<arg value="words"/>
+				<arg value="true"/>
+				<arg value="false"/>
+				<arg value="true"/>
+				<arg value="false"/>
+		  </java>
 	</target>
 
-    <target name="dawg_bit" depends="jar">
-        <java jar="bin/Dawg.jar" fork="true">
-            <arg value="bin/dict_bit"/>
-            <arg value="words"/>
-            <arg value="true"/>
-            <arg value="false"/>
-            <arg value="true"/>
-            <arg value="true"/>
-        </java>
+	  <target name="dawg_test" depends="compile,dawg">
+		  <mkdir dir="bin/"/>
+		  <jar destfile="bin/DawgTest.jar" basedir="bin/">
+				<manifest>
+					 <attribute name="Main-Class" value="com.degupta.dawg.test.DawgTester"/>
+				</manifest>
+		  </jar>
+		  <java jar="bin/DawgTest.jar" fork="true">
+				<arg value="bin/dict"/>
+				<arg value="words"/>
+		  </java>
+	 </target>
 
-        <java jar="bin/Dawg.jar" fork="true">
-            <arg value="bin/dict_bit_es"/>
-            <arg value="words_es"/>
-            <arg value="true"/>
-            <arg value="false"/>
-            <arg value="true"/>
-            <arg value="true"/>
-        </java>
-    </target>
+	 <target name="dawg_bit" depends="jar">
+		  <java jar="bin/Dawg.jar" fork="true">
+				<arg value="bin/dict_bit"/>
+				<arg value="words"/>
+				<arg value="true"/>
+				<arg value="false"/>
+				<arg value="true"/>
+				<arg value="true"/>
+		  </java>
+
+		  <java jar="bin/Dawg.jar" fork="true">
+				<arg value="bin/dict_bit_es"/>
+				<arg value="words_es"/>
+				<arg value="true"/>
+				<arg value="false"/>
+				<arg value="true"/>
+				<arg value="true"/>
+		  </java>
+	 </target>
 
 </project>
