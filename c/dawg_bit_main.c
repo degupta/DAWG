@@ -21,7 +21,7 @@ void translate(int *translatedWord, char *word, int* len)
 	*len = i;
 }
 
-void testDawg(const char * fileName, DawgBitArray_t dawgBitArray)
+int testDawg(const char * fileName, DawgBitArray_t dawgBitArray)
 {
 	char word[50];
 	int translatedWord[50];
@@ -34,11 +34,11 @@ void testDawg(const char * fileName, DawgBitArray_t dawgBitArray)
 		if(wordExists(dawgBitArray, translatedWord, len) == 0)
 		{
 			numBad++;
-			printf("%s, %d\n", word, len);
+			printf("Bad word: %s, %d\n", word, len);
 		}
 	}
 	fclose(fr);
-	printf("Num bad : %d\n", numBad);
+	return numBad;
 }
 
 
@@ -50,7 +50,8 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 	DawgBitArray_t dawgBitArray = createDawgBitFromFile(argv[1]);
-	testDawg(argv[2], dawgBitArray);
+	int numBad = testDawg(argv[2], dawgBitArray);
+	printf("Num bad : %d\n", numBad);
 	freeDawg(dawgBitArray);
-	return 0;
+	return numBad;
 }

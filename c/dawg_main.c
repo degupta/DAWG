@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdio.h>
 
-void testDawg(const char * fileName, DawgArray dawgArray)
+int testDawg(const char * fileName, DawgArray dawgArray)
 {
 	char word[50];
 	FILE *fr = fopen (fileName, "rt");
@@ -19,11 +19,11 @@ void testDawg(const char * fileName, DawgArray dawgArray)
 		if(wordExists(dawgArray, word) == 0)
 		{
 			numBad++;
-			printf("%s\n", word);
+			printf("Bad word: %s\n", word);
 		}
 	}
 	fclose(fr);
-	printf("Num bad : %d\n", numBad);
+	return numBad;
 }
 
 
@@ -35,7 +35,8 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 	DawgArray dawgArray = createDawgFromFile(argv[1]);
-	testDawg(argv[2], dawgArray);
+	int numBad = testDawg(argv[2], dawgArray);
+	printf("Num bad : %d\n", numBad);
 	free(dawgArray);
-	return 0;
+	return numBad;
 }
