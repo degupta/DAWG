@@ -119,7 +119,7 @@ public class TrieNode {
 	 * equal using ==)
 	 */
 	private boolean compare(TrieNode node) {
-		if (node.isFinal != this.isFinal)
+		if (node.c != this.c || node.isFinal != this.isFinal)
 			return false;
 		Set<Character> thisEdges = this.getEdges();
 		Set<Character> otherEdges = node.getEdges();
